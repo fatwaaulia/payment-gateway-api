@@ -1,0 +1,17 @@
+{
+    "name": "fatwa/payment-gateway-api",
+    "autoload": {
+        "psr-4": {
+            "Fatwa\\PaymentGatewayApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Fatwa Aulia",
+            "email": "fatwaaulia.fy@gmail.com"
+        }
+    ],
+    "require": {
+        "midtrans/midtrans-php": "^2.5"
+    }
+}
