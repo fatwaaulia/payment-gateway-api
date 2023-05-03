@@ -119,8 +119,8 @@
     <h3>Data transaksi by id</h3>
 
     <?php
-    $status = \Midtrans\Transaction::status('1283730594');
-    var_dump($status);
+    $status = \Midtrans\Transaction::status('598054870');
+    print_r($status);
 
     ?>
 
