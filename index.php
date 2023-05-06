@@ -47,19 +47,34 @@
     <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="<?= $env['client_key'] ?>"></script>
     <script type="text/javascript">
-      document.getElementById('pay-button').onclick = () => {
+    document.getElementById('pay-button').onclick = () => {
         snap.pay('<?= $snap_token ?>', {
-          onSuccess: result => {
-            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-          },
-          onPending: result => {
-            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-          },
-          onError: result => {
-            document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-          }
+            onSuccess: result => {
+                document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+            },
+            onPending: result => {
+                // document.getElementById('result-json').innerHTML += Object.entries(result);
+                fetch('#', {
+                    method: 'POST',
+                    header: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: Object.entries(result)
+                })
+                .then(res => console.log(res))
+            },
+            onError: result => {
+                fetch('#', {
+                    method: 'POST',
+                    header: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: Object.entries(result)
+                })
+                .then(res => console.log(res))
+            }
         });
-      };
+    };
     </script>
 
     <br>
@@ -70,7 +85,6 @@
     print_r($status);
 
     ?>
-
 
 </body>
 </html>
