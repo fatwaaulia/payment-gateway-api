@@ -61,7 +61,8 @@
                     },
                     body: Object.entries(result)
                 })
-                .then(res => console.log(res))
+                console.log(Object.assign(result))
+                // .then(res => console.log(res))
             },
             onError: result => {
                 fetch('#', {
